@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
+/* Base light/dark variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #fff2eb; /* soft off-white */
+  --foreground: #3a2416; /* deep chocolate for contrast */
+  --primary: #ffd6ba; /* warm peach */
+  --secondary: #ffe8cd; /* pale butter */
+  --accent: #ffdcdc; /* blush pink */
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #3a2416; /* dark chocolate */
+    --foreground: #fff2eb; /* pale text */
+    --primary: #ffe8cd;
+    --secondary: #ffd6ba;
+    --accent: #ffdcdc;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+/* Links */
+a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Buttons */
+button,
+.btn {
+  background: var(--primary);
+  color: var(--background);
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+button:hover,
+.btn:hover {
+  background: var(--secondary);
+  transform: translateY(-1px);
+}
+
+/* Cards */
+.card {
+  background: var(--background);
+  border: 1px solid var(--secondary);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+  padding: 4rem 1rem;
+}
+section:nth-child(even) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Utility helpers */
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-accent {
+  color: var(--accent);
+}
+.bg-primary {
+  background: var(--primary);
+}
+.bg-secondary {
+  background: var(--secondary);
+}
+.bg-accent {
+  background: var(--accent);
 }

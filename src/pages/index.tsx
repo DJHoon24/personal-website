@@ -6,13 +6,12 @@ import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 
 const Home: NextPage = () => (
-  <>
+  <div className="scroll-smooth">
     <Navbar />
     <Hero />
     <Experience />
     <Projects />
     <Footer />
-  </>
+  </div>
 );
-
 export default Home;

@@ -1,3 +1,4 @@
+// components/Projects.js
 import { FC } from "react";
 import Image from "next/image";
 
@@ -8,52 +9,45 @@ interface Project {
 }
 const projects: Project[] = [
   {
-    image: "/super.jpeg",
+    image: "/super.jpg",
     title: "Coursify",
     link: "https://github.com/DJHoon24/Coursify",
   },
   {
-    image: "/super.jpeg",
+    image: "/super.jpg",
     title: "My Mark Manager",
     link: "https://github.com/DJHoon24/My-Mark-Manager",
   },
 ];
 
 const Projects: FC = () => (
-  <section id="projects" className="py-16">
-    <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((proj, idx) => (
-          <a
-            key={idx}
-            href={proj.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition"
-          >
-            <div className="relative h-48">
-              <Image
-                src={proj.image}
-                alt={proj.title}
-                layout="fill"
-                objectFit="cover"
-                className="group-hover:scale-105 transition duration-300"
-              />
-            </div>
-            <div className="p-6 flex justify-between items-center">
-              <h3 className="text-xl font-semibold transition group-hover:text-primary">
-                {proj.title}
-              </h3>
-              <span className="opacity-0 group-hover:opacity-100 transition">
-                🔗
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
+  <section id="projects" className="py-16 bg-accent bg-opacity-10">
+    <h2 className="text-4xl font-bold text-primary text-center mb-12">
+      Projects
+    </h2>
+    <div className="container mx-auto px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center md:justify-between">
+      {projects.map((p, i) => (
+        <a
+          key={i}
+          href={p.link}
+          target="_blank"
+          className="card group relative"
+        >
+          <Image
+            src={p.image}
+            alt={p.title}
+            width={350}
+            height={200}
+            className="rounded-lg object-cover"
+          />
+          <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 flex items-center justify-center transition">
+            <span className="text-primary opacity-0 group-hover:opacity-100 font-semibold">
+              {p.title}
+            </span>
+          </div>
+        </a>
+      ))}
     </div>
   </section>
 );
-
 export default Projects;

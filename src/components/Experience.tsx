@@ -1,3 +1,4 @@
+// components/Experience.js
 import { FC } from "react";
 import Image from "next/image";
 
@@ -6,69 +7,58 @@ interface Job {
   company: string;
   role: string;
   period: string;
-  description: string;
 }
+
 const jobs: Job[] = [
   {
-    logo: "/super.jpeg",
+    logo: "/betterup.jpg",
     company: "BetterUp",
     role: "Software Engineering Intern",
-    period: "Sept – Dec 2024",
-    description: "PAD Squad",
+    period: "Sept–Dec 2024",
   },
   {
-    logo: "/super.jpeg",
+    logo: "/super.jpg",
     company: "Super.com",
     role: "Software Engineering Intern",
-    period: "Jan – Apr 2024",
-    description: "Travel Team",
+    period: "Jan–Apr 2024 & Sept-Dec 2022",
   },
   {
-    logo: "/adp.jpeg",
+    logo: "/adp.jpg",
     company: "Lifion by ADP",
     role: "Platform Engineering Intern",
-    period: "Jun – Aug 2023",
-    description: "Platform Team",
+    period: "Jun–Aug 2023",
   },
   {
-    logo: "/super.jpeg",
+    logo: "/wish.jpg",
+    company: "Wish",
+    role: "Software Development Engineer Intern",
+    period: "Jan–Apr 2022",
+  },
+  {
+    logo: "/sony.jpg",
     company: "Sony Interactive Entertainment",
     role: "Software Developer Intern",
-    period: "May – Aug 2021",
-    description: "Payments Team",
+    period: "May–Aug 2021",
   },
 ];
 
 const Experience: FC = () => (
-  <section id="experience" className="py-16 bg-gray-50">
-    <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-8 text-center">Experience</h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-        {jobs.map((job, idx) => (
-          <div
-            key={idx}
-            className="flex items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition"
-          >
-            <div className="w-20 h-20 relative mr-6">
-              <Image
-                src={job.logo}
-                alt={job.company}
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-primary">{job.role}</h3>
-              <p className="text-sm text-gray-500">
-                {job.company} &middot; {job.period}
-              </p>
-              <p className="mt-2 text-gray-700">{job.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+  <section id="experience" className="py-16">
+    <h2 className="text-4xl font-bold text-primary text-center mb-12">
+      Experience
+    </h2>
+    <div className="container mx-auto px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
+      {jobs.map((job, i) => (
+        <div key={i} className="card flex flex-col items-center text-center">
+          <Image src={job.logo} alt={job.company} width={64} height={64} />
+          <h3 className="mt-4 font-semibold text-lg text-secondary">
+            {job.role}
+          </h3>
+          <p className="text-sm text-foreground mt-1">{job.company}</p>
+          <p className="text-xs text-foreground opacity-75">{job.period}</p>
+        </div>
+      ))}
     </div>
   </section>
 );
-
 export default Experience;
